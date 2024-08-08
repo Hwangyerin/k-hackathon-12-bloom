@@ -19,16 +19,6 @@ const Container = styled(LinearGradient).attrs(({theme}) => ({
   padding: 40px 20px;
 `;
 
-const StyledInput = styled.TextInput`
-  width: 100%;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 1); // 흰색 배경 (불투명)
-  border: 1px solid ${({theme}) => theme.inputBorder};
-  border-radius: 4px;
-  color: ${({theme}) => theme.text};
-  margin-bottom: 10px;
-`;
-
 const ErrorText = styled.Text`
   align-items: flex-start;
   width: 100%;
@@ -57,7 +47,13 @@ const Login = ({navigation}) => {
     setPassword(removeWhitespace(value));
   };
 
-  const handleLoginButtonPress = () => {};
+  const handleLoginButtonPress = () => {
+    // 로그인 로직을 추가하세요.
+
+    // 로그인 성공 후 홈 화면으로 이동
+    navigation.navigate('Home'); // 홈 화면으로 이동
+  };
+
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
@@ -71,31 +67,31 @@ const Login = ({navigation}) => {
       <Container insets={insets}>
         <Image url={images.logo} imageStyle={styles.imageStyle} rounded />
         <Input
-          label="Email"
+          label="이메일"
           value={email}
           onChangeText={handleEmailChange}
           onSubmitEditing={() => passwordRef.current.focus()}
-          placeholder="Email"
+          placeholder="example@gmail.com"
           returnKeyType="next"
         />
         <Input
           ref={passwordRef}
-          label="Password"
+          label="비밀번호"
           value={password}
           onChangeText={handlePasswordChange}
           onSubmitEditing={handleLoginButtonPress}
-          placeholder="Password"
+          placeholder="비밀번호"
           returnKeyType="done"
           isPassword
         />
         <ErrorText>{errorMessage}</ErrorText>
         <Button
-          title="Login"
+          title="로그인"
           onPress={handleLoginButtonPress}
           disabled={disabled}
         />
         <Button
-          title="Sign up with email"
+          title="회원가입"
           onPress={() => navigation.navigate('Signup')}
           isFilled={false}
         />

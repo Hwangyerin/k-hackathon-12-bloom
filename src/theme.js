@@ -23,7 +23,7 @@ export const theme = {
   buttonBackground: colors.blue,
   buttonTitle: colors.white,
   buttonUnfilledTitle: colors.blue,
-  headerTintColor: colors.black,
+  headerTintColor: colors.white,
   headerBackground: colors.lightBlue,
   statusbar: colors.lightBlue,
 };

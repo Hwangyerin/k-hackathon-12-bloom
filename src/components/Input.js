@@ -37,6 +37,7 @@ const Input = ({
   isPassword,
   returnKeyType,
   maxLength,
+  keyboardType, // keyboardType prop 추가
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -61,6 +62,7 @@ const Input = ({
         autoCorrect={false}
         textContentType="none" // iOS only
         underlineColorAndroid="transparent" // Android only
+        keyboardType={keyboardType}
       />
     </Container>
   );
@@ -68,6 +70,7 @@ const Input = ({
 
 Input.defaultProps = {
   onBlur: () => {},
+  keyboardType: 'default',
 };
 
 Input.propTypes = {
@@ -80,6 +83,7 @@ Input.propTypes = {
   isPassword: PropTypes.bool,
   returnKeyType: PropTypes.oneOf(['done', 'next']),
   maxLength: PropTypes.number,
+  keyboardType: PropTypes.string,
 };
 
 export default Input;
